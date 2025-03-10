@@ -1,0 +1,13 @@
+{
+  "name": "vacuu-testing",
+  "version": "1.0.0",
+  "description": "Automated testing for the Vacuu landing page using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.18.0"
+  },
+  "dependencies": {}
+}
