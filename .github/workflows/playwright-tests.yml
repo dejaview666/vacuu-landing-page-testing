@@ -3,10 +3,10 @@ name: Playwright Tests
 on:
   push:
     branches:
-      - master  # Или main, в зависимости от вашей основной ветки
+      - master  # Или main, если используете эту ветку
   pull_request:
     branches:
-      - master  # Или main, в зависимости от вашей основной ветки
+      - master  # Или main, если используете эту ветку
 
 jobs:
   test:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.0'  # Используйте нужную вам версию
+          node-version: '18.x'  # Используйте нужную вам версию
 
       - name: Install dependencies
         run: npm install  # Устанавливаем зависимости
