@@ -24,7 +24,10 @@ jobs:
       - name: Установка зависимостей
         run: |
           npm install
-          npx playwright install  
+          npx playwright install-deps  
+
+      - name: Установка Playwright
+        run: npx playwright install
 
       - name: Запуск тестов Playwright
         run: npx playwright test
