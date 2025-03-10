@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - master
-  workflow_dispatch:
 
 jobs:
   test:
@@ -21,10 +20,14 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Установка зависимостей и Playwright
-        run: |
-          npm install
-          npx playwright install --with-deps  
+      - name: Установка зависимостей
+        run: npm install
+
+      - name: Установка Playwright
+        run: npx playwright install
+
+      - name: Установка прав на выполнение
+        run: chmod +x node_modules/.bin/playwright
 
       - name: Запуск тестов Playwright
         run: npx playwright test
