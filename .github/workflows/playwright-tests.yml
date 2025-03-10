@@ -3,38 +3,32 @@ name: Playwright Tests
 on:
   push:
     branches:
-      - master
+      - master  # или main, в зависимости от вашей ветки
   pull_request:
     branches:
-      - master
+      - master  # или main, в зависимости от вашей ветки
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout репозиторий
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Установка Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18.x'  # Замените на желаемую версию, например, '18.x'
 
-      - name: Установка зависимостей
+      - name: Install dependencies
         run: npm install
 
-      - name: Установка Playwright
-        run: npx playwright install
-
-      - name: Установка прав на выполнение
-        run: chmod +x node_modules/.bin/playwright
-
-      - name: Запуск тестов Playwright
+      - name: Run Playwright tests
         run: npx playwright test
 
-      - name: Сохранение отчета
+      - name: Upload test report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: test-report
           path: reports/
