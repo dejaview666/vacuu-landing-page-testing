@@ -21,13 +21,10 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Установка зависимостей
+      - name: Установка зависимостей и Playwright
         run: |
           npm install
-          npx playwright install-deps  
-
-      - name: Установка Playwright
-        run: npx playwright install
+          npx playwright install --with-deps  
 
       - name: Запуск тестов Playwright
         run: npx playwright test
