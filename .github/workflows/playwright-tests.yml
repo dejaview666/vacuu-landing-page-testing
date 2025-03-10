@@ -3,10 +3,10 @@ name: Playwright Tests
 on:
   push:
     branches:
-      - master  # Или main, если используете эту ветку
+      - master
   pull_request:
     branches:
-      - master  # Или main, если используете эту ветку
+      - master
 
 jobs:
   test:
@@ -19,22 +19,22 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'  # Используйте нужную вам версию
+          node-version: '18.x'
 
       - name: Install dependencies
         run: |
-          npm install -g playwright  # Устанавливаем Playwright глобально
-          npm install                # Устанавливаем все зависимости
+          npm install -g playwright  
+          npm install                
 
       - name: Install Playwright browsers
-        run: npx playwright install  # Установка браузеров Playwright
+        run: npx playwright install
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=html  # Запуск тестов и создание HTML-отчета
+        run: npx playwright test --reporter=html
 
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-report
-          path: reports/  # Путь к папке с отчетами
+          path: reports/
