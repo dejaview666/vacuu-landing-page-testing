@@ -26,8 +26,11 @@ jobs:
           npm install -g playwright  # Устанавливаем Playwright глобально
           npm install                # Устанавливаем все зависимости
 
+      - name: Install Playwright browsers
+        run: npx playwright install  # Установка браузеров Playwright
+
       - name: Run Playwright tests
-        run: npx playwright test  # Запуск тестов
+        run: npx playwright test --reporter=html  # Запуск тестов и создание HTML-отчета
 
       - name: Upload test report
         if: always()
