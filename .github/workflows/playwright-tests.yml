@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-report
-          path: reports/  # Путь к папке с отчетами
+          path: playwright-report/  # Путь к папке с отчетами
